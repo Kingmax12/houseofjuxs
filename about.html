@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUSE OFJUXS | Premium Hair Attachments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+     <link href="index.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fdf9f0',
+                            100: '#fbf0d9',
+                            200: '#f6e0b3',
+                            300: '#edc67a',
+                            400: '#e3a947',
+                            500: '#d4902a',
+                            600: '#b87620',
+                            700: '#945c1d',
+                            800: '#7a4d1e',
+                            900: '#653f1b',
+                        },
+                        rose: {
+                            50: '#fdf2f2',
+                            100: '#fce7e7',
+                            200: '#f9d5d5',
+                            300: '#f4b8b8',
+                            400: '#ec8e8e',
+                            500: '#e06b6b',
+                            600: '#cc4e4e',
+                            700: '#aa3d3d',
+                            800: '#8d3535',
+                            900: '#753232',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'slide-in': 'slideIn 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+   
+</head>
+<body class="font-sans text-gray-800 bg-stone-50 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect border-b border-stone-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i data-lucide="sparkles" class="h-8 w-8 text-gold-600"></i>
+                    <span class="font-serif text-2xl font-bold tracking-wide text-gray-900">HOUSE OF<span class="text-gold-600">JUXS</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Home</a>
+                    <a href="collections.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Collections</a>
+                    <a href="texture.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Textures</a>
+                    <a href="about.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Our Story</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Contact</a>
+                    <a href="reviews.html" class="text-gray-700 hover:text-gold-600 transition-colors font-medium">Reviews</a>
+                </div>
+                <!-- Icons -->
+                <div class="flex items-center gap-4">
+                    <button class="p-2 hover:bg-stone-100 rounded-full transition-colors">
+                        <i data-lucide="search" class="h-5 w-5 text-gray-700"></i>
+                    </button>
+                    <button class="p-2 hover:bg-stone-100 rounded-full transition-colors relative" onclick="toggleCart()">
+                        <i data-lucide="shopping-bag" class="h-5 w-5 text-gray-700"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-gold-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart-badge hidden">0</span>
+                    </button>
+                    <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-200">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#collections" class="block px-3 py-2 text-gray-700 hover:bg-stone-50 rounded-md">Collections</a>
+                <a href="#texture" class="block px-3 py-2 text-gray-700 hover:bg-stone-50 rounded-md">Textures</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-stone-50 rounded-md">Our Story</a>
+                <a href="#reviews" class="block px-3 py-2 text-gray-700 hover:bg-stone-50 rounded-md">Reviews</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>About Us</h1>
+            <p>Welcome to House of Juxs, your ultimate destination for premium hair attachments that elevate your style and confidence. Founded with a passion for beauty and quality, we are dedicated to providing our customers with the finest hair products that cater to diverse tastes and preferences.</p>
+            <p>At House of Juxs, we understand that hair is more than just an accessory; it's a form of self-expression. That's why we meticulously source our hair extensions, wigs, and accessories from trusted suppliers to ensure that every strand meets our high standards of quality, durability, and natural appearance.</p>
+            <p>Our collection features a wide range of hair types, textures, and colors, allowing you to find the perfect match for your unique look. Whether you're looking for luscious curls, sleek straight strands, or voluminous waves, we have something for everyone.</p>
+            <p>Customer satisfaction is at the heart of everything we do. Our team is committed to providing exceptional service, from personalized consultations to expert advice on hair care and styling. We believe that everyone deserves to feel beautiful and confident in their own skin.</p>
+            <p>Thank you for choosing House of Juxs as your trusted partner in beauty. We look forward to helping you achieve your dream hairstyle and enhancing your natural beauty with our exquisite hair attachments.</p>
+    <br>
+    <br>
+     <!-- Place inside your about.html, e.g. replacing or within the .inner div -->
+<h1>About House of Juxs</h1>
+<p>
+House of Juxs is dedicated to helping you express your unique style and confidence through premium hair attachments. Our collection features a wide range of high-quality hair extensions, bundles, and braids designed to suit every personality and occasion. 
+</p>
+<p>
+We believe that great hair is the foundation of self-expression. Whether you want to add volume, length, or a splash of color, our products are crafted to blend seamlessly and look natural. At House of Juxs, we prioritize quality, comfort, and customer satisfaction, making sure you always look and feel your best.
+</p>
+<p>
+Join our community and discover the perfect hair attachment to elevate your look. Slay your style with House of Juxs!
+</p>
+        </div>
+        <section class="container">
+        <div class="body-pic">
+            <img src="/IMG-20250922-WA0075.jpg" width="500" height="630"/> 
+        </div>
+        </section>
+    </div>
+    <br>
+    <br>
+    <section class="hero" id="home">
+         <video autoplay loop muted playsinline style="position:absolute; width:100%; height:100%; object-fit:cover; left:0; top:0; z-index:0;">
+        <source src="/VID-20250922-WA0006.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+
+         <div class="outer  ">
+        <div class="inner">
+        </section>
+           
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="sparkles" class="h-6 w-6 text-gold-500"></i>
+                        <span class="font-serif text-xl font-bold">HOUSE OF<span class="text-gold-500">JUXS</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Premium ethically-sourced hair extensions for the modern queen. Quality, luxury, and confidence in every bundle.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">All Collections</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Bestsellers</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Help</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Returns & Exchanges</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Hair Care Guide</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/house_of_juxs_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue/20 hover:text-neon-blue transition-all">
+                        <div id="instagram-icon" class="w-6 h-6"></div>
+                    </a>
+                    <a href="#" aria-label="TikTok" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue/20 hover:text-neon-blue transition-all">
+                        <div id="tiktok-icon" class="w-6 h-6"></div>
+                    </a>
+                    <a href="https://wa.me/2348143180743" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue/20 hover:text-neon-blue transition-all">
+                        <div id="whatsapp-icon" class="w-6 h-6"></div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 HOUSE OFJUXS . All rights reserved.</p>
+                <div class="flex gap-6 text-gray-500 text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
+    <script src="lottie-icons.js"></script>
+    
+    
+</body>
+</html>
